@@ -1,34 +1,40 @@
 -- https://app.quickdatabasediagrams.com/#/d/VrwgsJ
 -------------------------------------------------------------
 -- Create tables and import csvs
-CREATE TABLE employees
-	emp_no VARCHAR(10)
-	emp_title_id VARCHAR(10)
-	birth_date DATE
-	first_name VARCHAR(20)
-	last_name VARCHAR(20)
-	sex VARCHAR(10)
-	hire_date DATE
-	
-CREATE TABLE departments
-	dept_no VARCHAR(10)
-	dept_name VARCHAR(20)
-	
-CREATE TABLE dept_emp
-	emp_no VARCHAR(10)
-	dept_no VARCHAR(10)
-	
-CREATE TABLE dept_manager
-	dept_no VARCHAR(10)
-	emp_no VARCHAR(10)
+-- CREATE TABLE employees (
+-- 	emp_no VARCHAR(10),
+-- 	emp_title_id VARCHAR(10),
+-- 	birth_date DATE,
+-- 	first_name VARCHAR(20),
+-- 	last_name VARCHAR(20),
+-- 	sex VARCHAR(10),
+-- 	hire_date DATE
+-- );
 
-CREATE TABLE salaries
-	emp_no VARCHAR(10)
-	salary INTEGER
+-- CREATE TABLE departments (
+-- 	dept_no VARCHAR(10),
+-- 	dept_name VARCHAR(20)
+-- );
+
+-- CREATE TABLE dept_emp (
+-- 	emp_no VARCHAR(10),
+-- 	dept_no VARCHAR(10)
+-- );
 	
-CREATE TABLE titles
-	title_id VARCHAR(10)
-	title VARCHAR(20)
+-- CREATE TABLE dept_manager (
+-- 	dept_no VARCHAR(10),
+-- 	emp_no VARCHAR(10)
+-- );
+
+-- CREATE TABLE salaries (
+-- 	emp_no VARCHAR(10),
+-- 	salary INTEGER
+-- );
+	
+-- CREATE TABLE titles (
+-- 	title_id VARCHAR(10),
+-- 	title VARCHAR(20)
+-- );
 ------------------------------------------------------------------------
 --DATA ANALYSIS Q1
 SELECT e.emp_no, e.last_name, e.first_name, e.sex, s.salary
@@ -82,7 +88,6 @@ JOIN departments AS d
 ON de.dept_no=d.dept_no
 WHERE d.dept_no ='d007' OR d.dept_no='d005';
 -- DATA ANALYSIS Q8
--- Not sure this is right
 SELECT e.last_name, COUNT(last_name)	
 FROM employees as e
 GROUP BY last_name
